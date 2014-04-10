@@ -4,12 +4,18 @@
  *
  * Created on April 10, 2014, 11:29 AM
  * 
- *  this is not working probably on my machine  
- *  libstdc++ / gcc-4.8.2 seems to be buggy so i used the boost threading library
+ * boost library needed
+ * linked libraries: pthread , boost_log , boost_log_setup , boost_thread ,
+ *                      boost_chrono, boost_system
+ * 
+ * this is not working probably on my machine  
+ *  libstdc++ / gcc-4.8.2 seems to be buggy so I used the boost threading library
  */
 
+// comment out for stl
 #define USE_BOOST
 
+// Boost libraries for thread-safe logging
 #define BOOST_LOG_DYN_LINK
 #include <boost/log/trivial.hpp>
 
