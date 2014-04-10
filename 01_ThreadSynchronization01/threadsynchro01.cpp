@@ -4,7 +4,7 @@
  *
  * Created on April 10, 2014, 11:29 AM
  * 
- * boost library needed
+ * boost libraries needed ( v1.55 or higher recommended )
  * linked libraries: pthread , boost_log , boost_log_setup , boost_thread ,
  *                      boost_chrono, boost_system
  * 
@@ -103,7 +103,7 @@ void use_recursive_mutexes(void)
  * use_locks:
  *      demonstration of locks like unique_lock, lock_guard
  * keywords:
- *      mutex , lock
+ *      lock , lock_guard , unique_lock
  ******************************************************************************/
 
 void use_locks(void)

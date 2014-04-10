@@ -1,10 +1,10 @@
 /* 
- * File:   main.cpp
+ * File:   threading01.cpp
  * Author: Fabian Kantereit
  *
  * Created on March 28, 2014, 3:53 PM
  * 
- * boost libraries needed
+ * boost libraries needed ( v1.55 or higher recommended )
  * linked libraries: pthread , boost_log , boost_log_setup
  */
 #include <cstdlib>
