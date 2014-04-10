@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=MultithreadedExceptionHandling01
+PROJECTNAME=32_MultithreadedExceptionHandling01
 
 # Active Configuration
 DEFAULTCONF=Debug

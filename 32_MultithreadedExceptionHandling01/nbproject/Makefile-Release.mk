@@ -56,11 +56,11 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/multithreadedexceptionhandling01
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/32_multithreadedexceptionhandling01
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/multithreadedexceptionhandling01: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/32_multithreadedexceptionhandling01: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/multithreadedexceptionhandling01 ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/32_multithreadedexceptionhandling01 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/multiThreadedException01.o: multiThreadedException01.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -73,7 +73,7 @@ ${OBJECTDIR}/multiThreadedException01.o: multiThreadedException01.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/multithreadedexceptionhandling01
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/32_multithreadedexceptionhandling01
 
 # Subprojects
 .clean-subprojects:

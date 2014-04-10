@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=BasicThreading01
+PROJECTNAME=00_BasicThreading01
 
 # Active Configuration
 DEFAULTCONF=Debug

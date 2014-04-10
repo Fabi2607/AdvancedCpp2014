@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=ThreadSynchronization01
+PROJECTNAME=99_CPP14Features01
 
 # Active Configuration
 DEFAULTCONF=Debug

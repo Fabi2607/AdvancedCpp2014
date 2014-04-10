@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=ThreadLocal01
+PROJECTNAME=31_ThreadLocal01
 
 # Active Configuration
 DEFAULTCONF=Debug

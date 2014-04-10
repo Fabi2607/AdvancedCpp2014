@@ -77,9 +77,13 @@ void unsafe_threaded_increment(int& n, bool mode)
     }
 }
 
-/*
- * shows different sync possibilities
- */
+
+/*******************************************************************************
+ * demonstrate_race_condition:
+ *      this is why we use locks , 
+ *      mutex and atomics and why atomic is preferable
+ ******************************************************************************/
+
 void demonstrate_race_condition(void) {
     
     // unsafe variant using no synchronization
@@ -112,9 +116,13 @@ void demonstrate_race_condition(void) {
     
 }
 
-/*
- * checks if the atomic types are lock free
- */
+/*******************************************************************************
+ * atomic_types_lock_free:
+ *      returns if the atomic_types are lockfree this 
+ *      may very from system to system depending on the architecture and
+ *      implementation
+ ******************************************************************************/
+
 void atomic_types_lock_free(void)
 {
     std::atomic_bool    aBool(true);
@@ -134,9 +142,8 @@ void atomic_types_lock_free(void)
     std::atomic_char32_t aChar32;	// std::atomic<char32_t>
     std::atomic_wchar_t  aWChar;	// std::atomic<wchar_t>
     std::atomic<double> aDouble;
-    
+   
     BOOST_LOG_TRIVIAL(debug) << "lock free?" ;
-    BOOST_LOG_TRIVIAL(debug) << "bool  : " << aBool.is_lock_free() ;
     BOOST_LOG_TRIVIAL(debug) << "flag  : true (guaranteed) " ;
     BOOST_LOG_TRIVIAL(debug) << "bool  : " << aBool.is_lock_free() ;
     BOOST_LOG_TRIVIAL(debug) << "char  : " << aChar.is_lock_free() ;

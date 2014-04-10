@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux-x86
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux-x86
-CND_ARTIFACT_NAME_Debug=threadsynchronization01
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/threadsynchronization01
+CND_ARTIFACT_NAME_Debug=99_cpp14features01
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/99_cpp14features01
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Debug=threadsynchronization01.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/threadsynchronization01.tar
+CND_PACKAGE_NAME_Debug=99cpp14features01.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/99cpp14features01.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux-x86
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86
-CND_ARTIFACT_NAME_Release=threadsynchronization01
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/threadsynchronization01
+CND_ARTIFACT_NAME_Release=99_cpp14features01
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/99_cpp14features01
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Release=threadsynchronization01.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/threadsynchronization01.tar
+CND_PACKAGE_NAME_Release=99cpp14features01.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/99cpp14features01.tar
 #
 # include compiler specific variables
 #

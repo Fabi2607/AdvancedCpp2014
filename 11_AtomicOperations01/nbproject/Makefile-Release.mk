@@ -56,11 +56,11 @@ LDLIBSOPTIONS=-lpthread -lboost_log -lboost_log_setup
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/atomicoperations01
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/11_atomicoperations01
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/atomicoperations01: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/11_atomicoperations01: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/atomicoperations01 ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/11_atomicoperations01 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/atomicOperations01.o: atomicOperations01.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -73,7 +73,7 @@ ${OBJECTDIR}/atomicOperations01.o: atomicOperations01.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/atomicoperations01
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/11_atomicoperations01
 
 # Subprojects
 .clean-subprojects:

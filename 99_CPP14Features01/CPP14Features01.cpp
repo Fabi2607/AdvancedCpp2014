@@ -9,11 +9,10 @@
 
 #define BOOST_LOG_DYN_LINK
 #include <boost/log/trivial.hpp>
-#include <thread>
-#include <mutex>
-// #include <shared_mutex> // not supported yet
+#include <boost/thread/shared_mutex.hpp>
+// #include <shared_mutex> // not supported yet in libstdc++
 
-using namespace std;
+using namespace boost;
 
 
 
@@ -22,10 +21,9 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     
+    boost::shared_mutex m;  // later this will be shared_timed_mutex    
+
     
-    // share_timed_mutex m; // not supported yet
-    
-    // shared_lock a;
     
     return 0;
 }

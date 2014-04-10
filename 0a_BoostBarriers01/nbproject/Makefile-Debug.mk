@@ -56,11 +56,11 @@ LDLIBSOPTIONS=-lpthread -lboost_log -lboost_log_setup -lboost_thread -lboost_sys
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/boostextensions01
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/0a_boostbarriers01
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/boostextensions01: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/0a_boostbarriers01: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/boostextensions01 ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/0a_boostbarriers01 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/barrier01.o: barrier01.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -73,7 +73,7 @@ ${OBJECTDIR}/barrier01.o: barrier01.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/boostextensions01
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/0a_boostbarriers01
 
 # Subprojects
 .clean-subprojects:

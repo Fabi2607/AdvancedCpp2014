@@ -13,6 +13,8 @@
 
 using namespace std;
 
+// thread_local variables can be global , extern and static member
+
 thread_local int i = 1;
 
 class Counter {
@@ -31,7 +33,12 @@ public:
     
 };
 
+// important!!! DO NOT FORGET! otherwise your result will look like this:
+// In function `TLS wrapper function for Counter::cnt':
+//   threadlocal01.cpp:(.text._ZTWN7Counter3cntE[_ZTWN7Counter3cntE]+0x1f): 
+//   undefined reference to `Counter::cnt'
 thread_local int Counter::cnt = 0;
+
 
 void inc()
 {
@@ -55,7 +62,7 @@ int main(int argc, char** argv) {
     thread t3([](void){Counter c,c2,c3; BOOST_LOG_TRIVIAL(debug) << "local thread objects: " << Counter::cnt; });
     
     t3.join();
-    BOOST_LOG_TRIVIAL(debug) << Counter::cnt;
+    BOOST_LOG_TRIVIAL(debug) <<"local thread objects: " << Counter::cnt;
     return 0;
 }
 

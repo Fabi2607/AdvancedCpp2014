@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux-x86
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux-x86
-CND_ARTIFACT_NAME_Debug=boostextensions01
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/boostextensions01
+CND_ARTIFACT_NAME_Debug=0a_boostbarriers01
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/0a_boostbarriers01
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Debug=boostextensions01.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/boostextensions01.tar
+CND_PACKAGE_NAME_Debug=0aboostbarriers01.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/0aboostbarriers01.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux-x86
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86
-CND_ARTIFACT_NAME_Release=boostextensions01
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/boostextensions01
+CND_ARTIFACT_NAME_Release=0a_boostbarriers01
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/0a_boostbarriers01
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Release=boostextensions01.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/boostextensions01.tar
+CND_PACKAGE_NAME_Release=0aboostbarriers01.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/0aboostbarriers01.tar
 #
 # include compiler specific variables
 #

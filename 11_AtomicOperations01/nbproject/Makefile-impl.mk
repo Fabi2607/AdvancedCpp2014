@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=AtomicOperations01
+PROJECTNAME=11_AtomicOperations01
 
 # Active Configuration
 DEFAULTCONF=Debug

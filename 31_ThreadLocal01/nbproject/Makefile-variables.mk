@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux-x86
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux-x86
-CND_ARTIFACT_NAME_Debug=threadlocal01
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/threadlocal01
+CND_ARTIFACT_NAME_Debug=31_threadlocal01
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/31_threadlocal01
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Debug=threadlocal01.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/threadlocal01.tar
+CND_PACKAGE_NAME_Debug=31threadlocal01.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/31threadlocal01.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux-x86
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86
-CND_ARTIFACT_NAME_Release=threadlocal01
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/threadlocal01
+CND_ARTIFACT_NAME_Release=31_threadlocal01
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/31_threadlocal01
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Release=threadlocal01.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/threadlocal01.tar
+CND_PACKAGE_NAME_Release=31threadlocal01.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/31threadlocal01.tar
 #
 # include compiler specific variables
 #

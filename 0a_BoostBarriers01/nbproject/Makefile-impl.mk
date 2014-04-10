@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=BoostExtensions01
+PROJECTNAME=0a_BoostBarriers01
 
 # Active Configuration
 DEFAULTCONF=Debug
