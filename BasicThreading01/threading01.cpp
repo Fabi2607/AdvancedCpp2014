@@ -4,7 +4,7 @@
  *
  * Created on March 28, 2014, 3:53 PM
  * 
- * package libboost needed
+ * boost libraries needed
  * linked libraries: pthread , boost_log , boost_log_setup
  */
 #include <cstdlib>

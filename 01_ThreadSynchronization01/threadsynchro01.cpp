@@ -31,6 +31,13 @@
     using namespace std;
 #endif
 
+/*******************************************************************************
+ * use_mutexes:
+ *      demonstration of mutex usage
+ * keywords:
+ *      mutex , timed_mutex , lock , try_lock , try_lock_for
+ ******************************************************************************/
+    
 void use_mutexes(void)
 {
     mutex m;
@@ -80,18 +87,33 @@ void use_mutexes(void)
     t2.join();
 }
 
+/*******************************************************************************
+ * use_recursive_mutexes:
+ *      demonstration of recursive mutex usage
+ * keywords:
+ *      mutex , lock
+ ******************************************************************************/
+
 void use_recursive_mutexes(void)
 {
     
 }
 
+/*******************************************************************************
+ * use_locks:
+ *      demonstration of locks like unique_lock, lock_guard
+ * keywords:
+ *      mutex , lock
+ ******************************************************************************/
+
 void use_locks(void)
 {
     
 }
-/*
- * 
- */
+
+/*******************************************************************************
+ * main function
+ ******************************************************************************/
 int main(int argc, char** argv) {
 
     use_mutexes();
