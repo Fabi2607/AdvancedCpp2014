@@ -1,33 +1,47 @@
-/* 
- * File:   threading01.cpp
- * Author: Fabian Kantereit
- *
- * Created on March 28, 2014, 3:53 PM
+/**
+ * @file threading01.cpp
  * 
  * boost libraries needed ( v1.55 or higher recommended )
  * linked libraries: pthread , boost_log , boost_log_setup
+ * 
+ * @author Fabian Kantereit
+ * @date March 28, 2014, 3:53 PM
+ * @version 0.1
+ * 
  */
 #include <cstdlib>
 #include <thread>
 
-// Boost libraries for thread-safe logging
+/**
+ * @def BOOST_LOG_DYN_LINK 
+ * needed for dynamic linked boost log libraries 
+ */
 #define BOOST_LOG_DYN_LINK
+
+/** Boost libraries for thread-safe logging */
 #include <boost/any.hpp>
 #include <boost/log/trivial.hpp>
 using namespace boost;
 
-/*******************************************************************************
- * Thread functions
- ******************************************************************************/
 
+/**
+ * prints the current thread id
+ */
 void foo(void) {
     BOOST_LOG_TRIVIAL(debug) << "foo called in thread: " << std::this_thread::get_id();
 }
 
+/**
+ * dummy thread function that prints the argument
+ * @param n argument to print
+ */
 void bar(int n) {
     BOOST_LOG_TRIVIAL(debug) << "bar called with argument " << n;
 }
 
+/**
+ * dummy thread function that sleeps for 500ms
+ */
 void sleeper(void) {
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
     BOOST_LOG_TRIVIAL(debug) << "Finished sleeping";
@@ -124,9 +138,12 @@ void move_swap_thread(void)
     t5.join();
 }
 
-/*******************************************************************************
- * main function
- ******************************************************************************/
+/**
+ * 
+ * @param argc shell argument count
+ * @param argv shell argument values
+ * @return default return value
+ */
 int main(int argc, char** argv) {
     // Threads supported by hardware
     // BOOST_LOG is used for thread-safe display of Log-Messages

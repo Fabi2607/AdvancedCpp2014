@@ -1,8 +1,8 @@
-/* 
- * File:   ThreadPool.cpp
- * Author: fabian
+/**
+ * @file ThreadPool.cpp
+ * @author fabian
  * 
- * Created on April 3, 2014, 3:23 PM
+ * @date April 3, 2014, 3:23 PM
  */
 
 #include "ThreadPool.hpp"

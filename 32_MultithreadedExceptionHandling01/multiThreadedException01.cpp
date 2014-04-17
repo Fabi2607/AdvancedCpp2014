@@ -126,4 +126,3 @@ int main(int argc, char** argv) {
     promise_store_exception();
     return 0;
 }
-
