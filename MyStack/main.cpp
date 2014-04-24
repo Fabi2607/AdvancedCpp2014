@@ -20,11 +20,23 @@ int main(int argc, char** argv) {
     my.push(6);
     my.push(7);
     my.push(8);
+    my.push(8);
+    my.push(8);
+    my.push(8);
     
-    std::cout << my.pop() ;
+    
     std::cout<< my.pop();
     std::cout<< my.pop();
     std::cout<< my.pop() ;
+    std::cout<< my.pop() ;
+    std::cout<< my.pop() ;
+    std::cout<< my.pop() ;
+    try {
+        std::cout<< my.pop() ;
+        std::cout<< my.pop() ;
+    } catch(StackException& e) {
+        cout << e.what() <<endl ;
+    }
     
     MyStack<string> stringStack;
     

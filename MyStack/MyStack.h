@@ -13,6 +13,19 @@
 #include <exception>
 #include <memory>
 
+class StackException : std::exception {
+public:
+    StackException(const char* message) : message_(message) {
+        
+    };
+    
+    virtual const char* what() const noexcept {
+        return message_;
+    };
+private:
+    const char* message_;
+};
+
 template<class T>
 class MyStack {
 public:
@@ -33,6 +46,7 @@ public:
                 std::unique_ptr<T>* new_array = new std::unique_ptr<T>[vsize_*2];
                 std::move(v_,v_+vsize_, new_array);
                 vsize_ *= 2;
+                delete [] v_;
                 v_ = new_array;
             } catch (std::bad_alloc) {
                 std::cout << "memory allocation failed";
@@ -51,10 +65,17 @@ public:
     }
     
     T pop(void) {
-        return (vused_ > 0 ) ? *(v_[--vused_]) : NULL;
+        if (isEmpty())
+            throw StackException("Stack empty");
+        return  *(v_[--vused_]);
+    }
+    
+    inline bool isEmpty() {
+        return (vused_ <= 0);
     }
     
     MyStack(const MyStack& orig);
+    
     virtual ~MyStack() {
         delete [] v_;
     };
