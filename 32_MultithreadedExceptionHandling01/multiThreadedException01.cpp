@@ -13,8 +13,13 @@
 
 using namespace std;
 
+
+/**
+ * demonstration of exceptions thrown by std::future and std::promise
+ */
 void future_errors(void)
 {
+    // std::future : no_state
     std::future<int> empty_future;
     try {
         empty_future.get();
@@ -24,6 +29,7 @@ void future_errors(void)
         BOOST_LOG_TRIVIAL(error) << "std::future_errc::no_state";
     }
     
+    // std::promise : future_already_retrieved
     std::promise<int> p;
     try {
         p.get_future();
@@ -34,6 +40,7 @@ void future_errors(void)
         BOOST_LOG_TRIVIAL(error) << "std::future_errc::future_already_retrieved";
     }
     
+    // std::promise : promise already satisfied
     std::promise<int> promise;
     try {
         promise.set_value(5);
@@ -44,7 +51,7 @@ void future_errors(void)
         BOOST_LOG_TRIVIAL(error) << "std::future_errc::promise_already_satisfied";
     }
     
-    
+    // std::promise : broken promise
     std::future<void> future;
     {
         std::promise<void> p1;

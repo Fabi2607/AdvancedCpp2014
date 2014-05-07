@@ -1,6 +1,6 @@
 /* 
- * File:   main.cpp
- * Author: fabian
+ * @file futures01.cpp
+ * @author Fabian Kantreit
  *
  * Created on April 2, 2014, 6:28 PM
  */

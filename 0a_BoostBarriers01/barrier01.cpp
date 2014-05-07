@@ -11,8 +11,6 @@
 #include <cstdlib>
 #include <thread>
 
-
-
 #define BOOST_LOG_DYN_LINK
 #include<boost/thread/barrier.hpp>
 #include<boost/log/trivial.hpp>

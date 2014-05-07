@@ -19,9 +19,7 @@
 #define BOOST_LOG_DYN_LINK
 
 /** Boost libraries for thread-safe logging */
-#include <boost/any.hpp>
 #include <boost/log/trivial.hpp>
-using namespace boost;
 
 
 /**
@@ -42,17 +40,14 @@ void bar(int n) {
 /**
  * dummy thread function that sleeps for 500ms
  */
-void sleeper(void) {
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+void sleeper(int milliseconds) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(milliseconds));
     BOOST_LOG_TRIVIAL(debug) << "Finished sleeping";
 }
 
-/*******************************************************************************
- * start_simple_thread
- * keywords:
- *  thread , join
- ******************************************************************************/
-
+/**
+ * start simple thread which does nothing
+ */
 void start_simple_thread(void)
 {
     BOOST_LOG_TRIVIAL(trace) << ">>>void start_simple_thread(void)";
@@ -63,11 +58,9 @@ void start_simple_thread(void)
     t1.join();
 }
 
-/*******************************************************************************
- * start_thread_array
- * keywords:
- *  thread , join , array
- ******************************************************************************/
+/**
+ * start an array of threads
+ */
 void start_thread_array(void)
 {
   BOOST_LOG_TRIVIAL(trace) << ">>>void start_thread_array(void)";
@@ -82,29 +75,26 @@ void start_thread_array(void)
     t[i].join();
 }
 
-/*******************************************************************************
- * start_detached_thread
- * keywords:
- *  thread , detach
- ******************************************************************************/
+/**
+ * start a detached thread
+ */
 void start_detached_thread(void) {
     BOOST_LOG_TRIVIAL(trace) << ">>>void start_detached_thread(void)";
     // we can detach a thread to make it independent from our handle
     // it will terminate automatically once it is done
 
     // start a sleeping thread
-    std::thread t2(sleeper);
+    std::thread t2(sleeper, 500);
 
     BOOST_LOG_TRIVIAL(debug) << "t2 joinable: " << t2.joinable();
     t2.detach(); // thread is detached from our local handle
+                 // resources will be freed when the thread is terminated
     BOOST_LOG_TRIVIAL(debug) << "t2 joinable: " << t2.joinable();
 } // without detach t2 would have been destroyed and the thread terminated
 
-/*******************************************************************************
- * move_swap_thread
- * keywords:
- *  thread , operator= , move , swap , constructor
- ******************************************************************************/
+/**
+ * permform move and swap operations on threads
+ */
 void move_swap_thread(void)
 {
     BOOST_LOG_TRIVIAL(trace) << ">>>void move_swap_thread(void)";
@@ -116,10 +106,10 @@ void move_swap_thread(void)
     BOOST_LOG_TRIVIAL(debug) << "t3 joinable: " << t3.joinable();
     BOOST_LOG_TRIVIAL(debug) << "t4 joinable: " << t4.joinable();
     
-    // the assignment operator = is deleted!
+    // the assignment operator= is deleted!
     // t3 = t4;
     
-    // use move instead
+    // use move assignment instead
     t3 = std::move(t4);
     BOOST_LOG_TRIVIAL(debug) << "t3 joinable: " << t3.joinable();
     BOOST_LOG_TRIVIAL(debug) << "t4 joinable: " << t4.joinable();
@@ -167,10 +157,14 @@ int main(int argc, char** argv) {
     // we can also swap and move
     move_swap_thread();
     
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    // detached thread is still running, be careful
+    // what happens to detached threads at end of main?
+    // >>>
+    // http://stackoverflow.com/questions/19744250/c11-what-happens-to-a-detached-thread-when-main-exits
+    // std::this_thread::sleep_for(std::chrono::seconds(1));
 
     BOOST_LOG_TRIVIAL(debug) << "End of Main Thread";
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 

@@ -1,8 +1,5 @@
-/* 
- * File:   main.cpp
- * Author: fabian
- *
- * Created on April 10, 2014, 11:29 AM
+/** 
+ * @file threadsynchro01.cpp
  * 
  * boost libraries needed ( v1.55 or higher recommended )
  * linked libraries: pthread , boost_log , boost_log_setup , boost_thread ,
@@ -10,12 +7,22 @@
  * 
  * this is not working probably on my machine  
  *  libstdc++ / gcc-4.8.2 seems to be buggy so I used the boost threading library
+ * 
+ * @author Fabian Kantereit
+ * @date April 10, 2014, 11:29 AM
  */
 
-// comment out for stl
+/**
+ * @def USE_BOOST
+ * USE_BOOST enables the usage of boost libraries instead of stl,
+ * stl's timed_mutex is not working as expected
+ */
 #define USE_BOOST
 
-// Boost libraries for thread-safe logging
+/**
+ * @def BOOST_LOG_DYN_LINK 
+ * needed for dynamic linked boost log libraries 
+ */
 #define BOOST_LOG_DYN_LINK
 #include <boost/log/trivial.hpp>
 
@@ -31,13 +38,9 @@
     using namespace std;
 #endif
 
-/*******************************************************************************
- * use_mutexes:
- *      demonstration of mutex usage
- * keywords:
- *      mutex , timed_mutex , lock , try_lock , try_lock_for
- ******************************************************************************/
-    
+/**
+ * demonstrates mutex , timed_mutex , lock , try_lock , try_lock_for
+ */
 void use_mutexes(void)
 {
     mutex m;
@@ -47,7 +50,8 @@ void use_mutexes(void)
     thread t1([&](void) {
        BOOST_LOG_TRIVIAL(debug) << "waiting for m" ;
        
-       m.lock(); // blocking call until mutex is unlocked 
+       // blocking until mutex is unlocked 
+       m.lock(); 
        
        BOOST_LOG_TRIVIAL(debug) << "lock acquired" ;
        
@@ -69,6 +73,7 @@ void use_mutexes(void)
     thread t2([&](void) {
        BOOST_LOG_TRIVIAL(debug) << "waiting for m" ;
        
+       // try locking until time limit is reached, avoids/reveals deadlocking
        while(!tm.try_lock_for(chrono::milliseconds(500))) 
             BOOST_LOG_TRIVIAL(debug) << "locking timed out after 500ms" ;  
        
@@ -81,43 +86,38 @@ void use_mutexes(void)
        BOOST_LOG_TRIVIAL(debug) << "lock released" ;
     });
     
+    // wait until releasing the mutex
     this_thread::sleep_for(chrono::milliseconds(3000));
     tm.unlock();
     
     t2.join();
 }
 
-/*******************************************************************************
- * use_recursive_mutexes:
- *      demonstration of recursive mutex usage
- * keywords:
- *      mutex , lock
- ******************************************************************************/
-
+/**
+ * demonstrates the usage of recursive mutexes
+ */
 void use_recursive_mutexes(void)
 {
     
 }
 
-/*******************************************************************************
- * use_locks:
- *      demonstration of locks like unique_lock, lock_guard
- * keywords:
- *      lock , lock_guard , unique_lock
- ******************************************************************************/
-
+/**
+ * demonstrates the use of locks, lock_guards, unique_locks
+ */
 void use_locks(void)
 {
     
 }
 
-/*******************************************************************************
- * main function
- ******************************************************************************/
+/**
+ * @param argc unused
+ * @param argv unused
+ * @return default return value
+ */
 int main(int argc, char** argv) {
 
     use_mutexes();
   
-    return 0;
+    return EXIT_SUCCESS;
 }
 
