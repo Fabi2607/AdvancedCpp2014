@@ -12,7 +12,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>CPP14Features01.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -37,16 +37,14 @@
       <compileType>
         <ccTool>
           <standard>8</standard>
-          <commandlineTool>g++</commandlineTool>
         </ccTool>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibLibItem>boost_system</linkerLibLibItem>
-            <linkerLibLibItem>boost_thread</linkerLibLibItem>
+            <linkerLibStdlibItem>PosixThreads</linkerLibStdlibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="CPP14Features01.cpp" ex="false" tool="1" flavor2="0">
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -69,7 +67,7 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="CPP14Features01.cpp" ex="false" tool="1" flavor2="0">
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>

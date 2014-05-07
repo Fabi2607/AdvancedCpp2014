@@ -6,10 +6,6 @@
  */
 
 #include "ThreadPool.hpp"
-/*
-ThreadPool::ThreadPool() : work_(ioService_)  {
-    
-}*/
 
 ThreadPool::ThreadPool(unsigned int threads) {
     for(int i = 0; i<threads;++i)

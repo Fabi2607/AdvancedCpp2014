@@ -52,7 +52,7 @@ void start_simple_thread(void)
 {
     BOOST_LOG_TRIVIAL(trace) << ">>>void start_simple_thread(void)";
     // starting a new the thread
-    std::thread t1(foo);
+    std::thread t1{foo};
 
     // join Thread t1
     t1.join();
@@ -65,10 +65,10 @@ void start_thread_array(void)
 {
   BOOST_LOG_TRIVIAL(trace) << ">>>void start_thread_array(void)";
   // declaring an array of threads
-  int max_threads = std::thread::hardware_concurrency();
+  int max_threads = std::thread::hardware_concurrency()-1;
   std::thread t[max_threads]; // "Not-a-thread" threads until constructor is called
   for (int i = 0; i < max_threads; ++i)
-    t[i] = std::thread(bar, i);
+    t[i] = std::thread{bar, i};
 
   // join all threads
   for (int i = 0; i < max_threads; ++i)
@@ -84,7 +84,7 @@ void start_detached_thread(void) {
     // it will terminate automatically once it is done
 
     // start a sleeping thread
-    std::thread t2(sleeper, 500);
+    std::thread t2{sleeper, 500};
 
     BOOST_LOG_TRIVIAL(debug) << "t2 joinable: " << t2.joinable();
     t2.detach(); // thread is detached from our local handle
@@ -99,7 +99,7 @@ void move_swap_thread(void)
 {
     BOOST_LOG_TRIVIAL(trace) << ">>>void move_swap_thread(void)";
     // Additionally we can move a thread
-    std::thread t3(foo);
+    std::thread t3{foo};
     BOOST_LOG_TRIVIAL(debug) << "t3 joinable: " << t3.joinable();
     std::thread t4(std::move(t3)); // constructor call with move => no copies allowed
     BOOST_LOG_TRIVIAL(debug) << "t3 moved to t4 " ;
