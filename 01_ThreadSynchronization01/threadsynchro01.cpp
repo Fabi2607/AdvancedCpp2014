@@ -46,6 +46,7 @@ void use_mutexes(void)
     mutex m;
     m.lock();
     BOOST_LOG_TRIVIAL(debug) << "m locked" ;
+    
     // simple mutex lock
     thread t1([&](void) {
        BOOST_LOG_TRIVIAL(debug) << "waiting for m" ;

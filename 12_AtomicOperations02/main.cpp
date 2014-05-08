@@ -1,5 +1,5 @@
 /** 
- * File:   main.cpp
+ * @file main.cpp
  * Author: fabian
  *
  * Created on May 8, 2014, 9:44 AM

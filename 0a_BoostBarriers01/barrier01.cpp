@@ -14,7 +14,6 @@
 #define BOOST_LOG_DYN_LINK
 #include<boost/thread/barrier.hpp>
 #include<boost/log/trivial.hpp>
-#include <condition_variable>
 
 using namespace std;
 

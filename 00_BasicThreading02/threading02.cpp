@@ -1,8 +1,11 @@
-/* 
- * File:   main.cpp
- * Author: fabian
+/** 
+ * @file  threading01.cpp
+ * 
+ * Shows the use of callable objects instead of functions
+ * 
+ * @author Fabian Kantereit
  *
- * Created on May 7, 2014, 2:12 PM
+ * @date May 7, 2014, 2:12 PM
  */
 
 #include <cstdlib>

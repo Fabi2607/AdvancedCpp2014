@@ -18,7 +18,7 @@
  */
 #define BOOST_LOG_DYN_LINK
 
-/** Boost libraries for thread-safe logging */
+/* Boost libraries for thread-safe logging */
 #include <boost/log/trivial.hpp>
 
 

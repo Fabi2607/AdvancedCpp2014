@@ -1,5 +1,5 @@
 /* 
- * File:   main.cpp
+ * File:   singleton.cpp
  * Author: fabian
  *
  * Created on May 7, 2014, 1:06 PM

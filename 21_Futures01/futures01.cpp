@@ -26,6 +26,18 @@ int add(int a, int b) {
     return a + b;
 }
 
+class Worker {
+public:
+    std::promise<int> result;
+    
+    void operator() () {
+        BOOST_LOG_TRIVIAL(debug) << "Value set";
+        result.set_value(5);
+        std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+        BOOST_LOG_TRIVIAL(debug) << "Thread ended";
+    }
+};
+
 /**
  * 
  * @param argc
@@ -60,17 +72,10 @@ int main(int argc, char** argv) {
     BOOST_LOG_TRIVIAL(debug) << value3.get();
     
     // using promise
-    std::promise<int> p;
-    std::future<int> f3 = p.get_future();
-    std::thread t1([](std::promise<int> p){ 
-        BOOST_LOG_TRIVIAL(debug) << "Value set";
-        p.set_value(5);
-        std::this_thread::sleep_for(std::chrono::milliseconds(5000));
-        BOOST_LOG_TRIVIAL(debug) << "Thread ended";
-    }, std::move(p));
-    
-    f3.wait();
-    BOOST_LOG_TRIVIAL(debug) << "Value ready";
+    Worker w;
+    std::future<int> f3 = w.result.get_future();
+    std::thread t1{std::move(w)};
+    BOOST_LOG_TRIVIAL(debug) << "Value ready: " << f3.get();
     t1.join();
     
     return 0;
