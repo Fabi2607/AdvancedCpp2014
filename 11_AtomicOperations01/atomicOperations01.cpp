@@ -35,7 +35,7 @@ const int maxValue = 10000000;
  * atomic increment using std::atomic<int> 
  * race condition safe data types
  */
-void atomic_increment(std::atomic_int& n, bool mode)
+void atomic_increment(std::atomic<int>& n, bool mode)
 {
     for(int i=0;i<maxValue;++i)
     {
@@ -62,7 +62,7 @@ void slow_protected_increment(int& n, bool mode, std::mutex& m_n)
     }
 }
 
-/*
+/**
  * unsafe increment
  * demonstrates a race condition
  */
@@ -78,13 +78,13 @@ void unsafe_threaded_increment(int& n, bool mode)
 }
 
 
-/*******************************************************************************
+/**
  * demonstrate_race_condition:
  *      this is why we use locks , 
  *      mutex and atomics and why atomic is preferable
- ******************************************************************************/
-
-void demonstrate_race_condition(void) {
+ */
+void demonstrate_race_condition(void) 
+{
     
     // unsafe variant using no synchronization
     int n=0;
@@ -116,14 +116,13 @@ void demonstrate_race_condition(void) {
     
 }
 
-/*******************************************************************************
+/**
  * atomic_types_lock_free:
  *      returns if the atomic_types are lockfree this 
  *      may very from system to system depending on the architecture and
  *      implementation
- ******************************************************************************/
-
-void atomic_types_lock_free(void)
+ */
+void atomic_types_lock_free(void) 
 {
     std::atomic_bool    aBool(true);
     std::atomic_flag    aFlag(false);

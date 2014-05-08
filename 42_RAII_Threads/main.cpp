@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
     unsafe_function();
     std::this_thread::sleep_for(std::chrono::milliseconds(2000));
     std::thread t1{[](){cout<<"safe" <<endl;}};
-    thread_guard g{t1};
+    thread_guard g{t1}; // threads are joined, even if an exception is thrown
     return 0;
 }
 

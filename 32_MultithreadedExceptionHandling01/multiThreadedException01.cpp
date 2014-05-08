@@ -1,6 +1,6 @@
-/* 
- * File:   multiThreadedException01.cpp
- * Author: fabian
+/**
+ * @file multiThreadedException01.cpp
+ * @author fabian
  *
  * Created on April 3, 2014, 11:40 AM
  */
@@ -68,6 +68,10 @@ void future_errors(void)
 
 }
 
+/**
+ * return exceptions with a exception_ptr
+ * @param exc_thrown
+ */
 void threaded_exception(std::exception_ptr& exc_thrown)
 {
     try {
@@ -81,6 +85,9 @@ void threaded_exception(std::exception_ptr& exc_thrown)
     }
 }
 
+/**
+ * demosntrate exception ptr
+ */
 void exception_example(void)
 {
     exception_ptr thrown_exc;
@@ -101,6 +108,9 @@ void exception_example(void)
 
 void promise_store_exception(void)
 {
+    // use futures / promises to store exception
+    // this allows to throw exceptions for each result the thread
+    // useful if a thread is working on many operation and can continue
     std::promise<int> result;
     
     std::thread([&](void){
@@ -116,6 +126,15 @@ void promise_store_exception(void)
     } catch (std::exception& e) {
         BOOST_LOG_TRIVIAL(error) << e.what();
     }
+    
+    // std::async will store excpetions in the future
+    std::future<void> result2 = std::async([]{throw std::exception();});
+    try {
+        result2.get();
+    } catch (std::exception& e)       
+    {
+        BOOST_LOG_TRIVIAL(error) << "Autostore: " << e.what();
+    }
 }
 
 /*
@@ -129,7 +148,7 @@ int main(int argc, char** argv) {
     // exception handling in threads
     exception_example();
     
-    // store exception in promise
+    // store exception in promise / future
     promise_store_exception();
     return 0;
 }

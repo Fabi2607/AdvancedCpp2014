@@ -1,22 +1,28 @@
-/* 
- * File:   main.cpp
- * Author: fabian
+/**
+ * @file threadlocal01.cpp
+ * @author Fabian Kantereit
  *
- * Created on April 9, 2014, 12:53 PM
+ * @date April 9, 2014, 12:53 PM
  */
 
 #include <cstdlib>
 #include <thread>
 
+/**
+ * @def BOOST_LOG_DYN_LINK 
+ * needed for dynamic linked boost log libraries 
+ */
 #define BOOST_LOG_DYN_LINK
 #include <boost/log/trivial.hpp>
 
 using namespace std;
 
 // thread_local variables can be global , extern and static member
-
 thread_local int i = 1;
 
+/**
+ * simple class with a thread-local counter
+ */
 class Counter {
 public:
     thread_local static int cnt;
@@ -32,17 +38,11 @@ public:
     }
     
 };
-
-// important!!! DO NOT FORGET! otherwise your result will look like this:
-// In function `TLS wrapper function for Counter::cnt':
-//   threadlocal01.cpp:(.text._ZTWN7Counter3cntE[_ZTWN7Counter3cntE]+0x1f): 
-//   undefined reference to `Counter::cnt'
 thread_local int Counter::cnt = 0;
-
 
 void inc()
 {
-    i+=10;
+    i += 10;
     BOOST_LOG_TRIVIAL(debug) << i;
 }
 

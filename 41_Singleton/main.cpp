@@ -68,11 +68,12 @@ A* A::instance_ = nullptr;
 
 // How you should do it
 // guaranteed to be thread-safe in C++11
+// make sure your compiler is fully C++11 compliant
 
 class A {
 public:
     static A& get_instance() {
-        static A instance;
+        static A instance; 
         return instance;
     }
 };

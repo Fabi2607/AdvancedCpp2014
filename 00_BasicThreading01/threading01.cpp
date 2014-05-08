@@ -93,7 +93,7 @@ void start_detached_thread(void) {
 } // without detach t2 would have been destroyed and the thread terminated
 
 /**
- * permform move and swap operations on threads
+ * perform move and swap operations on threads
  */
 void move_swap_thread(void)
 {

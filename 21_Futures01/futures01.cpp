@@ -14,14 +14,23 @@
 
 using namespace std;
 
+/**
+ * sleeps for 2s and adds a and b
+ * @param a
+ * @param b
+ * @return 
+ */
 int add(int a, int b) {
     BOOST_LOG_TRIVIAL(debug) << "Thread started";
     this_thread::sleep_for(chrono::milliseconds(2000));
     return a + b;
 }
 
-/*
+/**
  * 
+ * @param argc
+ * @param argv
+ * @return 
  */
 int main(int argc, char** argv) {
 
@@ -35,7 +44,8 @@ int main(int argc, char** argv) {
     std::packaged_task<double(double, double) > task2([](double a, double b) {
         BOOST_LOG_TRIVIAL(debug) << "Task started";
         this_thread::sleep_for(chrono::milliseconds(2000));
-        return a + b; });
+        return a + b; 
+    });
         
     std::future<double> value2 = task2.get_future();
     task2(4,7);
