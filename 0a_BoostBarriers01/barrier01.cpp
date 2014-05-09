@@ -1,9 +1,10 @@
-/* 
- * File:   barrier01.cpp
- * Author: fabian
+/** 
+ * @file barrier01.cpp
+ * @author Fabian Kantereit
  *
- * Created on April 3, 2014, 10:00 AM
+ * @date April 3, 2014, 10:00 AM
  * 
+ * demonstrates the use of boost barrier for thread synchronization
  * boost library needed
  * 
  */

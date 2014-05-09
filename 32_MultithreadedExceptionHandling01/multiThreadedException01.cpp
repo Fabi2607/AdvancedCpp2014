@@ -86,7 +86,7 @@ void threaded_exception(std::exception_ptr& exc_thrown)
 }
 
 /**
- * demosntrate exception ptr
+ * demonstrate exception ptr
  */
 void exception_example(void)
 {
