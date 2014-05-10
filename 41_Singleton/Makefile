@@ -119,6 +119,8 @@ help: .help-post
 .help-post: .help-impl
 # Add your post 'help' code here...
 
+check-syntax:
+	gcc -o nul -std=c++11 -lpthread -lboost_system -lboost_log -S ${CHK_SOURCES}
 
 
 # include project implementation makefile

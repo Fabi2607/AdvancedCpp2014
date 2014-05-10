@@ -44,6 +44,7 @@ void atomic_memory_order_increment(std::atomic_int& n, bool mode, std::memory_or
     {
         if (mode) {
             // note that this will NOT work like a lock
+
             n.fetch_add(1, order);
         }
         else

@@ -1,9 +1,8 @@
-/* 
- * File:   atomicOperations01.cpp
- * Author: Fabian Kantereit
+/** 
+ * @file atomicOperations01.cpp
+ * @author Fabian Kantereit
  *
- * Created on March 28, 2014, 4:54 PM
- * Last modified: April 03, 2014, 10:52 PM
+ * @date March 28, 2014, 4:54 PM
  * 
  * libboost needed
  * linked libraries: pthread , boost_log , boost_log_setup
@@ -213,4 +212,5 @@ int main(int argc, char** argv) {
 
     return 0;
 }
+
 

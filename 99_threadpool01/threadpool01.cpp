@@ -25,7 +25,6 @@ int main(int argc, char** argv) {
     
     cout << "Value: " << future.get() << endl;
     
-    
     return 0;
 }
 

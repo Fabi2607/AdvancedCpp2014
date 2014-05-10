@@ -172,7 +172,7 @@ int main(int argc, char** argv) {
     lockfree_stack<int> i;
     int j = 1;
     i.push(j);
-    cout << *(i.pop());
+    cout << *(i.pop()) << endl;
     return 0;
 }
 

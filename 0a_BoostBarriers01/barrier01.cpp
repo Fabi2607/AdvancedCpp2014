@@ -18,13 +18,12 @@
 
 using namespace std;
 
-/*******************************************************************************
+/**
  * thread_wait:
  *      wait for ms until barrier is reached
  * keywords:
  *      boost::barrier
- ******************************************************************************/
-
+ */
 void thread_wait(std::chrono::milliseconds ms, boost::barrier& waitPoint)
 {
     BOOST_LOG_TRIVIAL(debug) << "Thread started";

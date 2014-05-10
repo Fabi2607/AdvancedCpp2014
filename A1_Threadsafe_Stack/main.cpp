@@ -10,12 +10,15 @@
 #include <stack>
 #include <mutex>
 #include <memory>
+#include <iostream>
 
 using namespace std;
 
 struct empty_stack_exception : std::exception
 {
-    const char* what() const throw();
+    const char* what() const throw() override {
+		return "stack is empty";
+	}
 };
 
 
@@ -46,7 +49,7 @@ public:
     std::shared_ptr<T> pop() {
         std::lock_guard<std::mutex> lock(m);
         if(data.empty()) throw empty_stack_exception();
-        std::shared_ptr<T> const res(std::make_shared(std::move(data.top())));
+        std::shared_ptr<T> const res(std::make_shared<T>(std::move(data.top())));
         data.pop();
         return res;
     }
@@ -66,7 +69,11 @@ public:
 };
 
 int main(int argc, char** argv) {
+	threadsafe_stack<int> stack;
 
-    return 0;
+	stack.push(1);
+	shared_ptr<int> value(stack.pop());
+    cout << value << endl;
+	return 0;
 }
 
