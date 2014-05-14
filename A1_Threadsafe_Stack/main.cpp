@@ -1,8 +1,8 @@
-/* 
- * File:   main.cpp
- * Author: fabian
+/** 
+ * @file:  main.cpp
+ * @author Fabian Kantereit
  *
- * Created on May 8, 2014, 1:18 PM
+ * @date May 8, 2014, 1:18 PM
  */
 
 #include <cstdlib>
@@ -64,6 +64,7 @@ public:
     bool empty() const
     {
         std::lock_guard<std::mutex> lock(m);
+		return data.empty();
     }
    
 };

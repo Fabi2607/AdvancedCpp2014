@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   singleton.cpp
  * Author: fabian
  *
@@ -15,54 +15,53 @@ using namespace std;
 
 class A {
 
-    static A* instance_;
+    static A *instance_;
     // can you see the problem?
-public:
-    static A* get_instance() {
-        if(!instance_)
+  public:
+    static A *get_instance() {
+        if ( !instance_ )
             instance_ = new A();
         return instance_;
     }
 };
 
-A* A::instance_ = nullptr;
+A *A::instance_ = nullptr;
 
 #endif
 
 #ifdef Version2
 class A {
-    static A* instance_;
+    static A *instance_;
     static std::mutex mA_;
-    
-    static A* get_instance() {
-        std::unique_lock<std::mutex> lock(mA_); // this line is slow
-        if(!instance_)
+
+    static A *get_instance() {
+        std::unique_lock<std::mutex> lock( mA_ ); // this line is slow
+        if ( !instance_ )
             instance_ = new A();
         lock.unlock();
         return instance_;
     }
 };
 
-A* A::instance_ = nullptr;
+A *A::instance_ = nullptr;
 
 #endif
 
 #ifdef Version3
 
-
 class A {
-    static A* instance_;
+    static A *instance_;
     static std::once_flag flag_; // if you know the stl
-    
-    static A* get_instance() {
-        std::call_once(flag_, [&](){instance_ = new A();});
+
+    static A *get_instance() {
+        std::call_once( flag_, [&]() { instance_ = new A(); } );
         return instance_;
     }
 };
 
-A* A::instance_ = nullptr;
+A *A::instance_ = nullptr;
 
-#endif 
+#endif
 
 #ifdef Version4
 
@@ -71,21 +70,18 @@ A* A::instance_ = nullptr;
 // make sure your compiler is fully C++11 compliant
 
 class A {
-public:
-    static A& get_instance() {
-        static A instance; 
+  public:
+    static A &get_instance() {
+        static A instance;
         return instance;
     }
 };
 
+#endif
 
-#endif 
+int main( int argc, char **argv ) {
 
-int main(int argc, char** argv) {
+    A &a = A::get_instance();
 
-    A& a = A::get_instance();
-
-    
     return 0;
 }
-

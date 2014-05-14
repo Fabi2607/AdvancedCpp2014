@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   main.cpp
  * Author: fabian
  *
@@ -14,17 +14,13 @@
 
 using namespace boost;
 
-
-
 /*
- * 
+ *
  */
-int main(int argc, char** argv) {
-    
+int main( int argc, char **argv ) {
+
     boost::shared_mutex m;
     // std::shared_timed_mutex
-   
 
     return 0;
 }
-
