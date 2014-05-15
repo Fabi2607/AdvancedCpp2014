@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/lockfree_queue_mpmc.o
+	${OBJECTDIR}/lockfree_queue_spsc.o
 
 
 # C Compiler Flags
@@ -56,16 +56,16 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/a3_lockfree_queue
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/a3a_lockfree_queue
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/a3_lockfree_queue: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/a3a_lockfree_queue: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/a3_lockfree_queue ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/a3a_lockfree_queue ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/lockfree_queue_mpmc.o: lockfree_queue_mpmc.cpp 
+${OBJECTDIR}/lockfree_queue_spsc.o: lockfree_queue_spsc.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/lockfree_queue_mpmc.o lockfree_queue_mpmc.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/lockfree_queue_spsc.o lockfree_queue_spsc.cpp
 
 # Subprojects
 .build-subprojects:
@@ -73,7 +73,7 @@ ${OBJECTDIR}/lockfree_queue_mpmc.o: lockfree_queue_mpmc.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/a3_lockfree_queue
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/a3a_lockfree_queue
 
 # Subprojects
 .clean-subprojects:

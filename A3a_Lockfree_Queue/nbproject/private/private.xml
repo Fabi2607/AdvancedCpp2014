@@ -7,8 +7,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="Multithreading">
-            <file>file:/home/fabian/NetBeansProjects/A3_Lockfree_Queue/lockfree_queue_mpmc.cpp</file>
-            <file>file:/home/fabian/NetBeansProjects/A3_Lockfree_Queue/Makefile</file>
+            <file>file:/home/fabian/NetBeansProjects/A3a_Lockfree_Queue/lockfree_queue_spsc.cpp</file>
         </group>
     </open-files>
 </project-private>

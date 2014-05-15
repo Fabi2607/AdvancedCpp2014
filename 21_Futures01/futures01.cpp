@@ -49,6 +49,7 @@ int main( int argc, char **argv ) {
     // using packaged_task and detached thread
     std::packaged_task<int(int, int)> task( add );
     std::future<int> value = task.get_future();
+    
     std::thread( std::move( task ), 6, 7 ).detach();
     BOOST_LOG_TRIVIAL( debug ) << value.get();
 
@@ -60,18 +61,18 @@ int main( int argc, char **argv ) {
     } );
 
     std::future<double> value2 = task2.get_future();
-    task2( 4, 7 );
-	
+    task2( 4, 7 );	
 	
     BOOST_LOG_TRIVIAL( debug ) << "Task will run in main_thread";
     BOOST_LOG_TRIVIAL( debug ) << value2.get();
 
-	auto f = [](double a){
-		BOOST_LOG_TRIVIAL( debug ) << "Task started with arg " << a;
-		return a;
-	};
+    auto f = [](double a){
+	BOOST_LOG_TRIVIAL( debug ) << "Task started with arg " << a;
+	return a;
+    };
 
-	std::future<double> f_value = std::async(std::launch::async, f, 3);
+    // using async
+    std::future<double> f_value = std::async(std::launch::async, f, 3);
 
     // using async and bind
     std::future<int> value3 =

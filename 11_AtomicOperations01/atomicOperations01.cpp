@@ -22,9 +22,8 @@
  */
 #define BOOST_LOG_DYN_LINK
 #include <boost/log/trivial.hpp>
-#include <boost/integer.hpp>
 
-using namespace boost;
+using namespace std;
 
 const int maxValue = 10000000;
 
@@ -134,6 +133,7 @@ void atomic_types_lock_free( void ) {
     std::atomic_wchar_t aWChar;             // std::atomic<wchar_t>
     std::atomic<double> aDouble;
 	std::atomic<int*> a_pInt;
+	boost::shared_ptr<int> sp;
 
     BOOST_LOG_TRIVIAL( debug ) << "lock free?";
     BOOST_LOG_TRIVIAL( debug ) << "flag  : true (guaranteed) ";
@@ -154,6 +154,7 @@ void atomic_types_lock_free( void ) {
     BOOST_LOG_TRIVIAL( debug ) << "wchar : " << aChar32.is_lock_free();
     BOOST_LOG_TRIVIAL( debug ) << "double: " << aDouble.is_lock_free();
 	BOOST_LOG_TRIVIAL( debug ) << "p_int : " << a_pInt.is_lock_free();
+	BOOST_LOG_TRIVIAL( debug ) << "s_p   : " << boost::atomic_is_lock_free(&sp);
 }
 
 /*
@@ -184,7 +185,7 @@ void atomic_operations( void ) {
 
     // using load and store
     x = safe_int.load();
-    x += 5;
+    x += 5; // this is not synchronized
     safe_int.store( x );
     BOOST_LOG_TRIVIAL( debug ) << "value of x : " << x;
     BOOST_LOG_TRIVIAL( debug ) << "value of safe_int : " << safe_int;
